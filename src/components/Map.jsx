@@ -1,6 +1,19 @@
 import { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 
+async function getIPAddress() {
+  try {
+    const response = await fetch('https://api.ipify.org/?format=json');
+    const data = await response.json();
+    const ipAddress = data.ip;
+    // console.log(`Your ip address is ${ipAddress}`);
+    return ipAddress;
+  } catch (error) {
+    console.error('Error:', error);
+    return null;
+  }
+}
+
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2Fta2FtZGV2IiwiYSI6ImNsZm1paW9zZDBieTc0NG5yYjVhYzAyZHkifQ.gv46TvI9vfHo32I6Dd4ZFg";
 
@@ -18,7 +31,7 @@ export default function Map() {
     const data = await resp.json();
     setLng(data.location.lng);
     setLng(data.location.lat);
-    console.log(lng, lat);
+    // console.log(lng, lat);
   };
 
   useEffect(() => {
@@ -49,11 +62,11 @@ export default function Map() {
   });
 
   return (
-    <div>
-      <div className="sidebar">
+    <div className="map__wrapper">
+      <div className="map__bar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
-      <div ref={mapContainer} className="map-container" />
+      <div ref={mapContainer} className="map-container"></div>
     </div>
   );
 }
