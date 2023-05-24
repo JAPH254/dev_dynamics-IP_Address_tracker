@@ -83,7 +83,6 @@ body {
   background-color: white;
   padding: 4rem;
   border-radius: 10px;
-  width: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -95,6 +94,32 @@ body {
 .result__box {
   padding-right: 5rem;
   padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 375px) {
+  html{
+    font-size: 55%;
+  }
+
+  .result{
+    flex-direction: column;
+    transform: translate(-50%, -3%);
+  }
+
+  .result__box{
+    padding: 2rem!important;
+    border: none!important;
+    margin-bottom: 0;
+  }
+
+  .search-area{
+    padding: 3rem 1rem;
+  }
+
+  .result__box--result{
+    font-size: 1.8rem;
+  }
 }
 
 .result > *:not(:last-child) {
@@ -119,6 +144,5 @@ body {
 }
 
 .map-container {
-  border: 2px solid gree;
   height: 600px;
 }
