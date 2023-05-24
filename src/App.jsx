@@ -1,15 +1,20 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Map from "./components/Map";
 import SearchBar from "./components/SearchBar";
+import Result from "./components/Result";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
-      <SearchBar />
+      <div className="search-area">
+        <SearchBar />
+        <Result
+          ipAddress="192.212.174.101"
+          location="Brooklyn, NY, 10001"
+          timeZone="utc-05:00"
+          isp="spacex starlink"
+        />
+      </div>
       <Map />
     </div>
   );
