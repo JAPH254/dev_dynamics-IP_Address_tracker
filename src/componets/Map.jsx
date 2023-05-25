@@ -6,10 +6,9 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic2Fta2FtZGV2IiwiYSI6ImNsZm1paW9zZDBieTc0NG5yY
 export default function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(3.3792);
+  const [lng, setLng] = useState(42.34343);
   const [lat, setLat] = useState(6.5244);
   const [zoom, setZoom] = useState(7);
-
 
   const getAddress = async ()=>{
 const resp = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_DJVqRwMX5PHlqbV4esekfm0F9gPbg&ipAddress=41.89.246.254`);
